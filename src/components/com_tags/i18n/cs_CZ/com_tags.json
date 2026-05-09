@@ -1,0 +1,6 @@
+{
+  "extensions.name.com_tags": "Tagy",
+  "extensions.description.com_tags": "Centralni tagovaci system pro obsah a dalsi rozsireni.",
+  "permissions.tags.view": "tags.view",
+  "permissions.tags.manage": "tags.manage"
+}

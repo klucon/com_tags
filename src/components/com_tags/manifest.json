@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "name": "com_tags",
+  "type": "component",
+  "vendor": "klucon",
+  "extension_id": "klucon/com_tags",
+  "version": "0.1.0",
+  "display_name": "Tagy",
+  "display_name_key": "extensions.name.com_tags",
+  "description": "Centralni tagovaci system pro obsah a dalsi rozsireni.",
+  "license": "MIT",
+  "author": {
+    "name": "KLUCON",
+    "url": "https://klucon.cz"
+  },
+  "links": {
+    "homepage": "https://marketplace.klucon.cz",
+    "repository": "https://github.com/klucon/com_tags"
+  },
+  "compatibility": {
+    "core_min": "0.1.0",
+    "core_max": null,
+    "python": ">=3.12",
+    "database": [
+      "mysql",
+      "postgresql"
+    ]
+  },
+  "package": {
+    "python_package": "com_tags",
+    "entrypoint": "src.components.com_tags",
+    "setup_function": "setup",
+    "admin_router": "admin.router",
+    "web_views": []
+  },
+  "permissions": [
+    {
+      "key": "tags.view",
+      "label": "permissions.tags.view"
+    },
+    {
+      "key": "tags.manage",
+      "label": "permissions.tags.manage"
+    }
+  ],
+  "i18n": {
+    "domain": "com_tags",
+    "locales_path": "i18n",
+    "required_locales": [
+      "cs_CZ",
+      "en_GB"
+    ]
+  },
+  "migrations": {
+    "enabled": false,
+    "path": "migrations"
+  },
+  "security": {
+    "requires_signature": true,
+    "capabilities": [
+      "database.write",
+      "admin.routes"
+    ]
+  },
+  "marketplace": {
+    "category": "content",
+    "tags": [
+      "tags",
+      "taxonomy",
+      "metadata"
+    ],
+    "featured": false
+  },
+  "min_cms_version": "0.1.0",
+  "categories": [
+    "content"
+  ],
+  "supported_locales": [
+    "cs_CZ",
+    "en_GB"
+  ],
+  "changelog": "Initial scaffold.",
+  "routes": {
+    "admin": {
+      "enabled": true,
+      "prefix": "/admin/com_tags",
+      "nav_label": "extensions.name.com_tags",
+      "nav_icon": "tags",
+      "nav_order": 120
+    },
+    "web": {
+      "enabled": false
+    }
+  },
+  "admin_url": "/admin/com_tags"
+}

@@ -1,0 +1,6 @@
+{
+  "extensions.name.com_tags": "Tags",
+  "extensions.description.com_tags": "Central tagging system for content and other extensions.",
+  "permissions.tags.view": "tags.view",
+  "permissions.tags.manage": "tags.manage"
+}
