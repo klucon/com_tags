@@ -4,7 +4,7 @@
   "type": "component",
   "vendor": "klucon",
   "extension_id": "klucon/com_tags",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "display_name": "Tagy",
   "display_name_key": "extensions.name.com_tags",
   "description": "Centrální tagovací systém pro obsah a další rozšíření.",
@@ -73,6 +73,16 @@
       "metadata"
     ],
     "featured": false
+  },
+  "dashboard": {
+    "quick_icon": {
+      "enabled": true,
+      "label": "Štítky",
+      "description": "Správa štítků a obsahové taxonomie.",
+      "icon": "tags",
+      "url": "/admin/com_tags",
+      "order": 120
+    }
   },
   "min_cms_version": "0.1.0",
   "categories": [
