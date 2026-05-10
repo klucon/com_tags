@@ -4,7 +4,7 @@
   "type": "component",
   "vendor": "klucon",
   "extension_id": "klucon/com_tags",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "display_name": "Tagy",
   "display_name_key": "extensions.name.com_tags",
   "description": "Centralni tagovaci system pro obsah a dalsi rozsireni.",
@@ -82,7 +82,7 @@
     "cs_CZ",
     "en_GB"
   ],
-  "changelog": "Stitky maji vlastni administraci a rozsireni editoru clanku.",
+  "changelog": "Oprava FastAPI route anotaci pro kompatibilitu s aktualni verzi frameworku.",
   "routes": {
     "admin": {
       "enabled": true,

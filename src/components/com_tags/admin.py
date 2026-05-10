@@ -89,7 +89,7 @@ async def edit_form(
     request: Request,
     user: CurrentAdminUser,
     db: AsyncSession = Depends(get_db_session),
-) -> HTMLResponse | Response:
+) -> Response:
     tag = await get_tag(db, tag_id)
     if tag is None:
         return RedirectResponse("/admin/com_tags", status_code=303)
