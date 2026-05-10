@@ -41,47 +41,6 @@ async def render_article_tags_field(*, article: Any | None, db: AsyncSession, **
     hint = escape(ct("com_tags.article.input_hint"))
     label = escape(ct("com_tags.article.field.tags"))
 
-    js = (
-        "(function(){"
-        "var wrap=document.getElementById('cmsTagWrap');"
-        "var inp=document.getElementById('cmsTagInput');"
-        "function addTag(val){"
-        "val=val.trim();"
-        "if(!val)return;"
-        "var existing=wrap.querySelectorAll('input[name=\"tag_names\"]');"
-        "for(var i=0;i<existing.length;i++){if(existing[i].value.toLowerCase()===val.toLowerCase())return;}"
-        "var chip=document.createElement('span');"
-        "chip.className='cms-tag-chip';"
-        "var lbl=document.createElement('span');"
-        "lbl.className='cms-tag-chip-label';"
-        "lbl.textContent=val;"
-        "var btn=document.createElement('button');"
-        "btn.type='button';"
-        "btn.className='cms-tag-chip-remove';"
-        "btn.innerHTML='&times;';"
-        "btn.setAttribute('aria-label','Odebrat '+val);"
-        "btn.addEventListener('click',function(){chip.remove();});"
-        "var hidden=document.createElement('input');"
-        "hidden.type='hidden';"
-        "hidden.name='tag_names';"
-        "hidden.value=val;"
-        "chip.appendChild(lbl);"
-        "chip.appendChild(btn);"
-        "chip.appendChild(hidden);"
-        "wrap.insertBefore(chip,inp);"
-        "}"
-        "inp.addEventListener('keydown',function(e){"
-        "if(e.key==='Enter'||e.key===','){e.preventDefault();addTag(inp.value);inp.value='';}"
-        "if(e.key==='Backspace'&&inp.value===''&&wrap.querySelector('.cms-tag-chip')){"
-        "wrap.querySelector('.cms-tag-chip:last-of-type').remove();}"
-        "});"
-        "wrap.querySelectorAll('.cms-tag-chip-remove').forEach(function(btn){"
-        "btn.addEventListener('click',function(){btn.closest('.cms-tag-chip').remove();});"
-        "});"
-        "wrap.addEventListener('click',function(){inp.focus();});"
-        "})();"
-    )
-
     return (
         "<hr>"
         f'<div class="mb-3">'
@@ -92,7 +51,6 @@ async def render_article_tags_field(*, article: Any | None, db: AsyncSession, **
         f"</div>"
         f'<div class="form-text">{hint}</div>'
         f"</div>"
-        f"<script>{js}</script>"
     )
 
 
