@@ -20,18 +20,24 @@
 <div class="card">
   <div class="table-responsive">
     <table class="table align-middle mb-0">
+      <caption class="visually-hidden">{{ ct('com_tags.admin.heading') }}</caption>
       <thead>
       <tr>
-        <th>{{ ct('com_tags.admin.col.title') }}</th>
-        <th>{{ ct('com_tags.admin.col.slug') }}</th>
-        <th>{{ ct('com_tags.admin.col.status') }}</th>
-        <th class="text-end">{{ ct('com_tags.admin.col.actions') }}</th>
+        <th scope="col">{{ ct('com_tags.admin.col.title') }}</th>
+        <th scope="col">{{ ct('com_tags.admin.col.slug') }}</th>
+        <th scope="col">{{ ct('com_tags.admin.col.status') }}</th>
+        <th scope="col" class="text-end">{{ ct('com_tags.admin.col.actions') }}</th>
       </tr>
       </thead>
       <tbody>
       {% for tag in tags %}
       <tr>
-        <td><span class="badge rounded-pill" style="background-color: {{ tag.color }}">{{ tag.title }}</span></td>
+        <td>
+          <span class="d-inline-flex align-items-center gap-2">
+            <span class="rounded-circle border" style="width: 1rem; height: 1rem; background-color: {{ tag.color }};" aria-hidden="true"></span>
+            <span class="fw-medium">{{ tag.title }}</span>
+          </span>
+        </td>
         <td><code>{{ tag.slug }}</code></td>
         <td>
           {% if tag.status == 'published' %}
@@ -42,7 +48,8 @@
         </td>
         <td class="text-end">
           <a class="btn btn-sm btn-outline-primary" href="/admin/com_tags/{{ tag.id }}/edit">{{ t('toolbar.edit') }}</a>
-          <form method="post" action="/admin/com_tags/{{ tag.id }}/delete" class="d-inline">
+          <form method="post" action="/admin/com_tags/{{ tag.id }}/delete" class="d-inline"
+                onsubmit="return confirm('{{ t('toolbar.delete') }}: {{ tag.title }}?')">
             <button class="btn btn-sm btn-outline-danger" type="submit">{{ t('toolbar.delete') }}</button>
           </form>
         </td>
