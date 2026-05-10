@@ -38,3 +38,11 @@ def setup(reg: "ComponentRegistry") -> None:
 
     hooks.on("content.article.form.sidebar", content_hooks.render_article_tags_field)
     hooks.on("content.article.saved", content_hooks.save_article_tags)
+
+
+async def uninstall_schema(engine: object) -> None:
+    from src.components.com_tags.models import Tag, TagAssignment
+
+    async with engine.begin() as conn:
+        await conn.run_sync(lambda sync_conn: TagAssignment.__table__.drop(sync_conn, checkfirst=True))
+        await conn.run_sync(lambda sync_conn: Tag.__table__.drop(sync_conn, checkfirst=True))
