@@ -4,7 +4,7 @@
   "type": "component",
   "vendor": "klucon",
   "extension_id": "klucon/com_tags",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "display_name": "Tagy",
   "display_name_key": "extensions.name.com_tags",
   "description": "Centrální tagovací systém pro obsah a další rozšíření.",
@@ -92,7 +92,7 @@
     "cs_CZ",
     "en_GB"
   ],
-  "changelog": "Přidán uninstall hook pro bezpečné odstranění tabulek štítků při odinstalaci.",
+  "changelog": "Tag input s chipsy přímo v editoru článku – tagy se vytvářejí automaticky při psaní.",
   "routes": {
     "admin": {
       "enabled": true,

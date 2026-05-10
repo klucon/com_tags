@@ -162,3 +162,31 @@ async def set_item_tags(db: AsyncSession, *, context: str, item_id: int, tag_ids
         db.add(TagAssignment(context=context, item_id=item_id, tag_id=tag_id))
 
     await db.commit()
+
+
+async def get_or_create_tag_by_name(db: AsyncSession, name: str) -> Tag | None:
+    """Najde tag podle slugu nebo vytvoří nový publikovaný. Nedělá commit."""
+    clean = name.strip()
+    if not clean:
+        return None
+    slug = slugify(clean)
+    if not slug:
+        return None
+    existing = (await db.execute(select(Tag).where(Tag.slug == slug))).scalar_one_or_none()
+    if existing:
+        return existing
+    tag = Tag(title=clean, slug=slug, description="", color="#6c757d", status=STATUS_PUBLISHED)
+    db.add(tag)
+    await db.flush()
+    return tag
+
+
+async def set_item_tags_by_names(
+    db: AsyncSession, *, context: str, item_id: int, tag_names: list[str]
+) -> None:
+    tag_ids: set[int] = set()
+    for name in tag_names:
+        tag = await get_or_create_tag_by_name(db, name)
+        if tag and tag.id:
+            tag_ids.add(tag.id)
+    await set_item_tags(db, context=context, item_id=item_id, tag_ids=tag_ids)
