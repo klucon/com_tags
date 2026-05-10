@@ -4,7 +4,7 @@
   "type": "component",
   "vendor": "klucon",
   "extension_id": "klucon/com_tags",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "display_name": "Tagy",
   "display_name_key": "extensions.name.com_tags",
   "description": "Centralni tagovaci system pro obsah a dalsi rozsireni.",
@@ -31,7 +31,8 @@
     "entrypoint": "src.components.com_tags",
     "setup_function": "setup",
     "admin_router": "admin.router",
-    "web_views": []
+    "web_views": [],
+    "settings_url": "/admin/com_tags"
   },
   "permissions": [
     {
@@ -59,7 +60,9 @@
     "requires_signature": true,
     "capabilities": [
       "database.write",
-      "admin.routes"
+      "admin.routes",
+      "content.article.form.sidebar",
+      "content.article.saved"
     ]
   },
   "marketplace": {
@@ -79,7 +82,7 @@
     "cs_CZ",
     "en_GB"
   ],
-  "changelog": "Initial scaffold.",
+  "changelog": "Stitky maji vlastni administraci a rozsireni editoru clanku.",
   "routes": {
     "admin": {
       "enabled": true,

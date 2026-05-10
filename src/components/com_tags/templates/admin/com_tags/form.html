@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% from "_toolbar.html" import btn_save, btn_cancel, separator %}
+{% block title %}{% if tag %}{{ ct('com_tags.admin.edit') }}{% else %}{{ ct('com_tags.admin.new') }}{% endif %}{% endblock %}
+{% block heading %}{% if tag %}{{ ct('com_tags.admin.edit') }}: {{ tag.title }}{% else %}{{ ct('com_tags.admin.new') }}{% endif %}{% endblock %}
+
+{% block toolbar %}
+<div class="cms-toolbar" role="toolbar">
+  {{ btn_save(t, 'cms-tag-form') }}
+  {{ separator() }}
+  {{ btn_cancel(t, '/admin/com_tags') }}
+</div>
+{% endblock %}
+
+{% block content %}
+{% if flash %}
+<div class="alert alert-{{ flash.type }} alert-dismissible mb-4" role="alert">
+  {{ flash.text }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ t('alert.close') }}"></button>
+</div>
+{% endif %}
+
+<form id="cms-tag-form" method="post" action="{% if tag %}/admin/com_tags/{{ tag.id }}/edit{% else %}/admin/com_tags/new{% endif %}">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body">
+          <div class="mb-3">
+            <label class="form-label fw-medium">{{ ct('com_tags.admin.col.title') }}</label>
+            <input class="form-control" name="title" value="{{ tag.title if tag else '' }}" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-medium">{{ ct('com_tags.admin.col.slug') }}</label>
+            <input class="form-control font-monospace" name="slug" value="{{ tag.slug if tag else '' }}">
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-medium">{{ ct('com_tags.admin.col.description') }}</label>
+            <textarea class="form-control" name="description" rows="8">{{ tag.description if tag else '' }}</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-header fw-semibold">{{ ct('com_tags.admin.settings') }}</div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label class="form-label fw-medium">{{ ct('com_tags.admin.col.color') }}</label>
+            <input class="form-control form-control-color" type="color" name="color" value="{{ tag.color if tag else '#6c757d' }}">
+          </div>
+          <div>
+            <label class="form-label fw-medium">{{ ct('com_tags.admin.col.status') }}</label>
+            <select class="form-select" name="status">
+              <option value="published" {% if not tag or tag.status == 'published' %}selected{% endif %}>{{ ct('com_tags.status.published') }}</option>
+              <option value="unpublished" {% if tag and tag.status == 'unpublished' %}selected{% endif %}>{{ ct('com_tags.status.unpublished') }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock %}

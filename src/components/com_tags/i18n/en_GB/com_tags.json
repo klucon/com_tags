@@ -1,6 +1,23 @@
 {
-  "extensions.name.com_tags": "Tags",
-  "extensions.description.com_tags": "Central tagging system for content and other extensions.",
-  "permissions.tags.view": "tags.view",
-  "permissions.tags.manage": "tags.manage"
+  "com_tags.admin.heading": "Tags",
+  "com_tags.admin.new": "New tag",
+  "com_tags.admin.edit": "Edit tag",
+  "com_tags.admin.empty": "No tags have been created yet.",
+  "com_tags.admin.settings": "Settings",
+  "com_tags.admin.col.title": "Title",
+  "com_tags.admin.col.slug": "Alias",
+  "com_tags.admin.col.description": "Description",
+  "com_tags.admin.col.color": "Color",
+  "com_tags.admin.col.status": "Status",
+  "com_tags.admin.col.actions": "Actions",
+  "com_tags.article.field.tags": "Tags",
+  "com_tags.article.empty": "No published tags are available yet.",
+  "com_tags.status.published": "Published",
+  "com_tags.status.unpublished": "Unpublished",
+  "com_tags.success.created": "Tag {title} has been created.",
+  "com_tags.success.updated": "Tag has been saved.",
+  "com_tags.success.deleted": "Tag has been deleted.",
+  "com_tags.error.title_required": "Tag title is required.",
+  "com_tags.error.slug_required": "Tag alias is required.",
+  "com_tags.error.slug_exists": "Alias {slug} is already used by another tag."
 }
