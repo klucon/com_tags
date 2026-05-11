@@ -34,7 +34,8 @@
       <tr>
         <td>
           <span class="d-inline-flex align-items-center gap-2">
-            <span class="rounded-circle border" style="width: 1rem; height: 1rem; background-color: {{ tag.color }};" aria-hidden="true"></span>
+            <input class="form-control form-control-color p-0 border-0" type="color" value="{{ tag.color }}"
+                   aria-label="{{ ct('com_tags.admin.color_aria', title=tag.title) }}" disabled>
             <span class="fw-medium">{{ tag.title }}</span>
           </span>
         </td>
@@ -49,7 +50,7 @@
         <td class="text-end">
           <a class="btn btn-sm btn-outline-primary" href="/admin/com_tags/{{ tag.id }}/edit">{{ t('toolbar.edit') }}</a>
           <form method="post" action="/admin/com_tags/{{ tag.id }}/delete" class="d-inline"
-                onsubmit="return confirm('{{ t('toolbar.delete') }}: {{ tag.title }}?')">
+                data-cms-confirm="{{ ct('com_tags.admin.delete_confirm', title=tag.title) }}">
             <button class="btn btn-sm btn-outline-danger" type="submit">{{ t('toolbar.delete') }}</button>
           </form>
         </td>

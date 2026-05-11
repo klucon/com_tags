@@ -4,6 +4,8 @@
   "com_tags.admin.edit": "Edit tag",
   "com_tags.admin.empty": "No tags have been created yet.",
   "com_tags.admin.settings": "Settings",
+  "com_tags.admin.delete_confirm": "Really delete tag {title}?",
+  "com_tags.admin.color_aria": "Tag color {title}",
   "com_tags.admin.col.title": "Title",
   "com_tags.admin.col.slug": "Alias",
   "com_tags.admin.col.description": "Description",

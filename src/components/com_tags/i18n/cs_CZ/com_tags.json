@@ -4,6 +4,8 @@
   "com_tags.admin.edit": "Upravit štítek",
   "com_tags.admin.empty": "Zatím nejsou vytvořené žádné štítky.",
   "com_tags.admin.settings": "Nastavení",
+  "com_tags.admin.delete_confirm": "Opravdu smazat štítek {title}?",
+  "com_tags.admin.color_aria": "Barva štítku {title}",
   "com_tags.admin.col.title": "Název",
   "com_tags.admin.col.slug": "Alias",
   "com_tags.admin.col.description": "Popis",
