@@ -4,7 +4,7 @@
   "type": "component",
   "vendor": "klucon",
   "extension_id": "klucon/com_tags",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "display_name": "Tagy",
   "display_name_key": "extensions.name.com_tags",
   "description": "Centrální tagovací systém pro obsah a další rozšíření.",
@@ -92,7 +92,7 @@
     "cs_CZ",
     "en_GB"
   ],
-  "changelog": "Přesun JS logiky tag inputu do cms-admin.js – oprava blokování inline scriptů CSP.",
+  "changelog": "Aktualizace dokumentace a rebuild balíčku pro GitHub distribuci.",
   "routes": {
     "admin": {
       "enabled": true,
